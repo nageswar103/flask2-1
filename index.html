@@ -12,21 +12,28 @@
         font-color:green;
         background-color:yellow;
         }
+        h2{
+        background-color:gray;
+        }
+        h1{
+        background-color:violet;
+        }
 
     </style>
 </head>
 <body>
-<center><h2><font bgcolor="red" color="green"><b>Enter student name and marks</b></font></h2></center>
+<center><h2><font color="brown"><b>Enter student name and marks</b></font></h2></center>
 <center><form action="" method="POST">
-    Name<input type="text" name="name"><br>
-    Physics<input type="text" name="physics"><br>
-    Chemistry<input type="text" name="chemistry"><br>
-    Maths<input type="text" name="maths"><br>
-    <input type="hidden" name="total">
+    Name<input type="text" name="name" /><br>
+    Physics<input type="text" name="physics" /><br>
+    Chemistry<input type="text" name="chemistry" /><br>
+    Maths<input type="text" name="maths" /><br>
+    <input type="hidden" name="total" />
     <input type="submit" name="upload">
 </form>
     </center>
+
+<marquee scrollamount="8" direction="down" height="200"><font width="50%" color="blue" bgcolor="orange"><h1>Hello Guys...! Welcome to the Flask World...!</h1></font></marquee>
 {{result}}
-<marquee><font width="50%" color="blue" bgcolor="orange"><h2>Hello Guys...! Welcome to the Flask World...!</h2></font></marquee>
 </body>
 </html>
