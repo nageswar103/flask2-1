@@ -1,11 +1,23 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-        "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
     <title>Home</title>
+    <style>
+        form{
+        background-color:pink;
+        }
+        body{
+        background-color:yellow;
+        }
+        header{
+        font-color:green;
+        background-color:yellow;
+        }
+
+    </style>
 </head>
 <body>
-<form action="" method="POST">
+<center><h2><font bgcolor="red" color="green"><b>Enter student name and marks</b></font></h2></center>
+<center><form action="" method="POST">
     Name<input type="text" name="name"><br>
     Physics<input type="text" name="physics"><br>
     Chemistry<input type="text" name="chemistry"><br>
@@ -13,6 +25,8 @@
     <input type="hidden" name="total">
     <input type="submit" name="upload">
 </form>
+    </center>
 {{result}}
+<marquee><font width="50%" color="blue" bgcolor="orange"><h2>Hello Guys...! Welcome to the Flask World...!</h2></font></marquee>
 </body>
 </html>
