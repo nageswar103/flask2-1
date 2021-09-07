@@ -1,10 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>result</title>
+    <style>
+        header{
+        background-color:brown;
+        }
+        h2{
+        background-color:skyblue;
+        font-color:red;
+        }
+        table{
+        background-color:yellow;
+        }
+    </style>
+
 </head>
-<body>
+<body bgcolor="orange">
+<center><h2><b><font color="red">Student Details Table:</font></b></h2></center>
 <center><table border="2" >
     {% for i in res1 %}
     <tr>
@@ -18,5 +31,14 @@
     {% endfor %}
 </table>
 </center>
+<marquee bgcolor="blue" scrollamount="8">
+
+    <font face="impact" size="5" color="red">If you want code visit my Git link given Below..!</font>
+</marquee>
+<a href="https://github.com/Saikrishnareddy12345/flask2" target="new">
+ <font face="impact" size="4" color="black">
+     https://github.com/Saikrishnareddy12345/flask2
+ </font>
+</a>
 </body>
 </html>
