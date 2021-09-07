@@ -1,37 +1,37 @@
-from flask import Flask,render_template,redirect,request,url_for
+from flask import Flask,redirect,render_template,request,url_for
+from flask_mysqldb import  MySQL
 import mysql.connector
-from flask_mysqldb import MySQL
 app=Flask(__name__)
-app.config['MySQL_HOST']='localhost'
-app.config['MySQL_USER']='root'
-app.config['MySQL_PASSWORD']=''
-app.config['MySQL_DB']='saidb'
+app.config['MYSQL_HOST']='localhost'
+app.config['MYSQL_USER']='root'
+app.config['MYSQL_PASSWORD']=''
+app.config['MYSQL_DB']='saidb'
 mysql=MySQL(app)
-@app.route('/')
-def student():
-    return render_template("app2_index.html")
-@app.route('/result',methods=['POST','GET'])
-def result():
+@app.route('/',methods=['GET','POST'])
+def index():
     if request.method=='POST':
         result=request.form.to_dict()
-        name=result['name']
+        name=request.form['name']
         physics=int(result['physics'])
         chemistry=int(result['chemistry'])
-        maths=int(result['maths'])
-        s=str(physics+chemistry+maths)
-        result["total"]=s
-        #total=result['total']
-        mycur = mysql.connection.cursor()
-        mycur.execute("insert into priyanka(name,physics,chemistry,maths,total) values(%s,%s,%s,%s,%s)",(name,physics,chemistry,maths,total))
+        maths = int(result['maths'])
+        s = str(physics + chemistry + maths)
+        result['total']=s
+        total = result['total']
+        cur=mysql.connection.cursor()
+        cur.execute("INSERT INTO priyanka (name,physics,chemistry,maths,total) VALUES(%s,%s,%s,%s,%s)",(name,physics,chemistry,maths,total))
         mysql.connection.commit()
-        mycur.close()
-        return redirect(url_for("/getting"))
-    return render_template("app2_index.html")
+        cur.close()
+        return redirect('/getting')
+    return render_template("index.html")
+
 @app.route('/getting')
 def get():
-    mycur=mysql.connection.cursor()
-    res=mycur.execute("SELECT * FROM priyanka")
+    cur=mysql.connection.cursor()
+    res=cur.execute("SELECT * FROM priyanka")
     if res>0:
-        res1=mycur.fetchall()
-        return render_template("app2_result.html",res1=res1)
-app.run(debug=True)
+        res1=cur.fetchall()
+    return render_template("result.html",res1=res1)
+
+if __name__=='__main__':
+    app.run(debug=True)
